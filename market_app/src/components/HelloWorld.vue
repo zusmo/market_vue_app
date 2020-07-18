@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>Markep Inventory App</h1>
+  <h1>Markep Inventory App :)</h1>
 </div>
 </template>
 
