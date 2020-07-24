@@ -19,8 +19,6 @@
             </div>
         </div>
     </div>
-
-    
 </template>
 
 <script>
@@ -43,7 +41,7 @@ export default {
                 return;
             }
             this.$store.commit("setUser", { email: this.email });
-            this.$router.push({ name:"home" });
+            this.$router.push({ name:"inventory" });
         }
     }
     

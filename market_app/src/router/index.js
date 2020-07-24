@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 
 const Login = () => import("@/views/Login.vue")
+const Inventory = () => import("@/views/Inventory.vue")
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,11 @@ const routes = [
     name: "login",
     component: Login
   },
+  {
+    path: "/inventory",
+    name: "inventory",
+    component: Inventory
+  }
 ];
 
 const router = new VueRouter({

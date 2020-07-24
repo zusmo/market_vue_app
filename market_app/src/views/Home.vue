@@ -3,7 +3,6 @@
   <div class="col text-center mt-4">
   <h1>SUPER MARKET INVENTORY</h1>
 </div>
-
 </div>
 </template>
 
