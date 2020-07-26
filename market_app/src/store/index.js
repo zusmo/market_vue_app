@@ -15,7 +15,7 @@ export default new Vuex.Store({
   getters: {
     isAuthenticated(state){
       return state.user != null; 
-    }
+    },
   },
   actions: {},
   modules: {}

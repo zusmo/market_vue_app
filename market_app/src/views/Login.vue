@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center pt-5 mt-5 m-1">
             <div class="col-md-4 formulario">
-                <form action="">
+                <form @submit.prevent="authenticate">
                     <div class="form-group text-center pt-3">
                         <h1 class="">Log In</h1>
                     </div>
@@ -22,7 +22,10 @@
 </template>
 
 <script>
-export default {
+
+import firebase from  "../common/firebase_setup";
+import "firebase/auth";
+    export default {
     name:'Login',
     data() {
       return {
@@ -31,23 +34,20 @@ export default {
       };
     },
 
-    created() {
-        
-    },
-
     methods: {
-        authenticate() {
-            if(this.email != "empleado1@gmail.com" || this.password != "123456") {
-                return;
+        async authenticate() {
+            try{
+                await firebase.auth().signInWithEmailAndPassword(this.email, this.password);
+                
+                this.$store.commit("setUser", { email: this.email});
+                this.$router.push({name: "inventory"});
+            } catch(error){ 
+                alert('Usuario Invalido');
             }
-            this.$store.commit("setUser", { email: this.email });
-            this.$router.push({ name:"inventory" });
+            
         }
     }
     
 };
 </script>
 
-<style>
-
-</style>

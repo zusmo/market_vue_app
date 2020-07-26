@@ -1,9 +1,19 @@
 <template>
-<h4>INVENTARIO</h4>
+  <div>
+    <add-product/>
+    <search-bar/>
+  </div>
 </template>
 
 <script>
+
+import productAdd from "@/components/addProduct.vue";
+import barSearch from "@/components/searchBar.vue";
 export default {
-  name: "Inventory"
+  name: "Inventory",
+  components: {
+    "add-product": productAdd,
+    "search-bar": barSearch,
+  }
 };
 </script>

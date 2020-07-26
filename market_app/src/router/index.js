@@ -11,17 +11,26 @@ const routes = [
   {
     path: "/home",
     name: "home",
-    component: Home
+    component: Home,
+    meta: {
+      requiresAuth: false
+    }
   },
   {
     path: "/login",
     name: "login",
-    component: Login
+    component: Login,
+    meta: {
+      requiresAuth: false
+    }
   },
   {
     path: "/inventory",
     name: "inventory",
-    component: Inventory
+    component: Inventory,
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 

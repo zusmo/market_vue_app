@@ -7,6 +7,18 @@ import "bootstrap";
 
 Vue.config.productionTip = false;
 
+router.beforeEach((to, from, next) => {
+  const isAuth = store.getters.isAuthenticated;
+
+  if(!isAuth && to.name != "login") {
+    next({
+      name: "login",
+    });
+  } else {
+    next();
+  }
+});
+
 new Vue({
   router,
   store,
