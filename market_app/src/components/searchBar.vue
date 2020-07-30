@@ -1,6 +1,10 @@
 <template>
-    <div class="container form-group mt-4">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 mt-4">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </div>
+        </div>
     </div>
 </template>
 
@@ -9,4 +13,5 @@ export default {
     name:'searchBar'
 }
 </script>
+            
 
