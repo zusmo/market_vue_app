@@ -19,7 +19,7 @@
                     <th scope="row">{{ prods.code }}</th>
                     <td>{{ prods.description }}</td>
                     <td class="">{{ prods.stock }}</td>
-                    <td>{{ prods.price }}/Lps</td>
+                    <td>{{ prods.price }}/Lps</td> 
                     </tr>
                 </tbody>
                 </table>
