@@ -9,17 +9,17 @@
                 <thead>
                     <tr>
                     <th scope="col">Codigo</th>
-                    <th scope="col">Descrpcion</th>
+                    <th scope="col">Descripción</th>
                     <th scope="col">Existencias</th>
                     <th scope="col">Precio/Lps</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">8569</th>
-                    <td>Zambos Platano Ceviche 140gr</td>
-                    <td>250</td>
-                    <td>28.95</td>
+                    <tr v-for="prods in products" v-bind:key="prods.id">
+                    <th scope="row">{{ prods.code }}</th>
+                    <td>{{ prods.description }}</td>
+                    <td class="">{{ prods.stock }}</td>
+                    <td>{{ prods.price }}/Lps</td>
                     </tr>
                 </tbody>
                 </table>
@@ -29,13 +29,33 @@
 </template>
 
 <script>
+/*FIRESTORE*/
+import firebase from "../common/firebase_setup"
+const db = firebase.firestore();
+
 export default {
     name: "Products",
-    props: ["code", "description","stock","price"]
-}
+    props: ["code", "description","stock","price"],
+
+    data () {
+    return {
+      products: []
+    }
+  },
+  created () {
+    db.collection("products").get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        const data = {
+          'code': doc.data().code,
+          'description': doc.data().description,
+          'stock': doc.data().stock,
+          'price': doc.data().price
+        };
+        this.products.push(data);
+      });
+    });
+  }
+};
 
 </script>
 
-<style>
-
-</style>
